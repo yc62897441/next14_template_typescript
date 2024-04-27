@@ -7,11 +7,24 @@ import { lusitana } from '@/app/ui/fonts'
 import SpanComponent from './ui/SpanComponent'
 import SpanComponent2 from './ui/SpanComponent2'
 
-export default function Home() {
+import { sql } from '@vercel/postgres'
+
+export default async function Home({ params }: { params: { user: string } }): Promise<JSX.Element> {
+    const { rows } = await sql`SELECT * from CARTS where user_id=${params.user}`
+    console.log('rows', rows)
+
     return (
         <main>
             <Image src="/vercel.svg" alt="Vercel Logo" width={100} height={24} priority />
             <Image src="/next.svg" alt="Next.js Logo" width={180} height={37} priority />
+
+            <div>
+                {rows.map((row) => (
+                    <div key={row.id}>
+                        {row.id} - {row.quantity}
+                    </div>
+                ))}
+            </div>
 
             <p>
                 主要字體 Inter：
