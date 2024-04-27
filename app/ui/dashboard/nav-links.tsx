@@ -2,7 +2,7 @@
 // https://nextjs.org/learn/dashboard-app/navigating-between-pages#pattern-showing-active-links
 'use client'
 
-import { UserGroupIcon, HomeIcon, DocumentDuplicateIcon } from '@heroicons/react/24/outline'
+// import { UserGroupIcon, HomeIcon, DocumentDuplicateIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
