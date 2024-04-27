@@ -19,11 +19,13 @@ export default async function Home({ params }: { params: { user: string } }): Pr
             <Image src="/next.svg" alt="Next.js Logo" width={180} height={37} priority />
 
             <div>
+                rows start:
                 {rows.map((row) => (
                     <div key={row.id}>
                         {row.id} - {row.quantity}
                     </div>
                 ))}
+                rows end:
             </div>
 
             <p>
